@@ -1,808 +1,422 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Meta Tags from Content Plan -->
-
     <title>Oureum Chain | Malaysia's First Stablecoin Ecosystem</title>
-
-    <meta name="description" content="Oureum Chain is Malaysia's leading stablecoin ecosystem, bridging traditional finance with Web3. Discover our fully asset-backed stablecoin (Oureum) and Low-gas fee Layer 2 network (OUM).">
-
+    <meta name="description" content="Oureum Chain is Malaysia's leading stablecoin ecosystem, bridging traditional finance with Web3. Discover our fully asset-backed stablecoin (Oureum) and low-gas fee Layer 2 network (OUM).">
     <meta name="keywords" content="Malaysia stablecoin, stablecoin ecosystem, low gas fee blockchain, Oureum, OUM, Web3, cryptocurrency, financial compliance, Ethereum Layer 2, blockchain technology">
 
-
-    <!-- Chosen Palette: Warm Neutrals -->
-
+    <!-- Chosen Palette: Black & Gold -->
     <!-- Application Structure Plan: The SPA is structured as a single, scrollable narrative designed for user exploration. It starts with a high-level introduction (Hero), moves to a detailed, interactive exploration of the core products (Ecosystem Tabs), presents key benefits (Features & Use Cases), visualizes future plans (Interactive Roadmap), and ends with clear calls-to-action. This non-linear, section-based flow with smooth-scroll navigation allows users to either follow the narrative or jump directly to their area of interest, making information discovery intuitive and efficient. The interactive roadmap was chosen over a static list to make future plans more engaging and memorable. -->
-
     <!-- Visualization & Content Choices: The core interactive element is the Roadmap, which uses a Chart.js line chart. Report Info: Multi-phase, multi-year roadmap. Goal: Visualize change over time. Viz Method: Line chart with clickable points. Interaction: Clicking a point on the timeline displays that phase's specific details. Justification: This is far more engaging than a static text list, encouraging user interaction and improving information retention. It visually represents the project's forward momentum. Library: Chart.js (Canvas). Other elements like the ecosystem diagram are built with structured HTML/CSS for clarity and simplicity. -->
-
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <style>
-
         body {
-
             font-family: 'Inter', sans-serif;
-
         }
-
         .chart-container {
-
             position: relative;
-
             width: 100%;
-
             max-width: 900px;
-
             margin-left: auto;
-
             margin-right: auto;
-
             height: 300px;
-
             max-height: 40vh;
-
         }
-
         @media (min-width: 768px) {
-
             .chart-container {
-
                 height: 400px;
-
             }
-
         }
-
         .glass-effect {
-
-            background: rgba(255, 255, 255, 0.1);
-
+            background: rgba(26, 26, 26, 0.5);
             backdrop-filter: blur(10px);
-
             -webkit-backdrop-filter: blur(10px);
-
-            border: 1px solid rgba(255, 255, 255, 0.2);
-
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
     </style>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
+<body class="bg-[#1A1A1A] text-[#F0F0F0]">
 
-<body class="bg-[#FDFBF8] text-[#3D3D3D]">
-
-
-    <header id="header" class="bg-[#FDFBF8]/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
-
+    <header id="header" class="bg-[#1A1A1A]/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-
-            <a href="#" class="text-2xl font-bold text-[#D4A373]">Oureum Chain</a>
-
+            <a href="#" class="text-2xl font-bold text-[#D4AF37]">Oureum Chain</a>
             <nav class="hidden md:flex items-center space-x-8">
-
-                <a href="#about" class="text-gray-600 hover:text-[#D4A373] transition">About</a>
-
-                <a href="#features" class="text-gray-600 hover:text-[#D4A373] transition">Features</a>
-
-                <a href="#use-cases" class="text-gray-600 hover:text-[#D4A373] transition">Use Cases</a>
-
-                <a href="#roadmap" class="text-gray-600 hover:text-[#D4A373] transition">Roadmap</a>
-
-                <a href="#contact" class="text-gray-600 hover:text-[#D4A373] transition">Contact</a>
-
+                <a href="#about" class="text-gray-400 hover:text-[#D4AF37] transition">About</a>
+                <a href="#features" class="text-gray-400 hover:text-[#D4AF37] transition">Features</a>
+                <a href="#use-cases" class="text-gray-400 hover:text-[#D4AF37] transition">Use Cases</a>
+                <a href="#roadmap" class="text-gray-400 hover:text-[#D4AF37] transition">Roadmap</a>
+                <a href="#contact" class="text-gray-400 hover:text-[#D4AF37] transition">Contact</a>
             </nav>
-
             <div class="flex items-center">
-
-                 <a href="#" class="bg-[#D4A373] text-white px-6 py-2 rounded-full hover:bg-[#BF8B5A] transition shadow-md hidden md:block">Launch App</a>
-
+                 <a href="#" class="bg-[#D4AF37] text-white px-6 py-2 rounded-full hover:bg-[#B5912C] transition shadow-md hidden md:block">Launch App</a>
                  <button id="mobile-menu-button" class="md:hidden ml-4">
-
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                  </button>
-
             </div>
-
         </div>
-
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-
-            <a href="#about" class="block py-2 text-gray-600 hover:text-[#D4A373]">About</a>
-
-            <a href="#features" class="block py-2 text-gray-600 hover:text-[#D4A373]">Features</a>
-
-            <a href="#use-cases" class="block py-2 text-gray-600 hover:text-[#D4A373]">Use Cases</a>
-
-            <a href="#roadmap" class="block py-2 text-gray-600 hover:text-[#D4A373]">Roadmap</a>
-
-            <a href="#contact" class="block py-2 text-gray-600 hover:text-[#D4A373]">Contact</a>
-
-            <a href="#" class="block mt-4 text-center bg-[#D4A373] text-white px-6 py-2 rounded-full hover:bg-[#BF8B5A]">Launch App</a>
-
+            <a href="#about" class="block py-2 text-gray-400 hover:text-[#D4AF37]">About</a>
+            <a href="#features" class="block py-2 text-gray-400 hover:text-[#D4AF37]">Features</a>
+            <a href="#use-cases" class="block py-2 text-gray-400 hover:text-[#D4AF37]">Use Cases</a>
+            <a href="#roadmap" class="block py-2 text-gray-400 hover:text-[#D4AF37]">Roadmap</a>
+            <a href="#contact" class="block py-2 text-gray-400 hover:text-[#D4AF37]">Contact</a>
+            <a href="#" class="block mt-4 text-center bg-[#D4AF37] text-white px-6 py-2 rounded-full hover:bg-[#B5912C]">Launch App</a>
         </div>
-
     </header>
 
-
     <main>
-
-        <section id="hero" class="relative py-20 md:py-32 bg-white overflow-hidden">
-
+        <section id="hero" class="relative py-20 md:py-32 bg-[#121212] overflow-hidden">
             <div class="container mx-auto px-6 text-center relative z-10">
-
-                <h1 class="text-4xl md:text-6xl font-bold text-[#3D3D3D] leading-tight mb-4">Oureum Chain: Malaysia's First Stablecoin Ecosystem</h1>
-
-                <h2 class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">Bridging Traditional Finance with the Future of Web3</h2>
-
-                <h3 class="text-lg md:text-xl text-[#D4A373] font-semibold mb-10">Experience Trust, Stability, and Zero Gas Fees</h3>
-
+                <h1 class="text-4xl md:text-6xl font-bold text-[#F0F0F0] leading-tight mb-4">Oureum Chain: Malaysia's First Stablecoin Ecosystem</h1>
+                <h2 class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">Bridging Traditional Finance with the Future of Web3</h2>
+                <h3 class="text-lg md:text-xl text-[#D4AF37] font-semibold mb-10">Experience Trust, Stability, and Low Gas Fees</h3>
                 <div class="flex justify-center space-x-4">
-
-                    <a href="#" class="bg-[#D4A373] text-white px-8 py-3 rounded-full hover:bg-[#BF8B5A] transition shadow-lg text-lg font-semibold">Launch App</a>
-
-                    <a href="#" class="bg-white text-[#D4A373] border border-[#D4A373] px-8 py-3 rounded-full hover:bg-[#FDFBF8] transition text-lg font-semibold">Read Whitepaper</a>
-
+                    <a href="#" class="bg-[#D4AF37] text-white px-8 py-3 rounded-full hover:bg-[#B5912C] transition shadow-lg text-lg font-semibold">Launch App</a>
+                    <a href="#" class="bg-transparent text-[#D4AF37] border border-[#D4AF37] px-8 py-3 rounded-full hover:bg-[#2A2A2A] transition text-lg font-semibold">Read Whitepaper</a>
                 </div>
-
             </div>
-
             <div class="absolute top-0 left-0 w-full h-full z-0 opacity-20">
-
                 <canvas id="hero-canvas"></canvas>
-
             </div>
-
         </section>
-
 
         <section id="about" class="py-24">
-
             <div class="container mx-auto px-6">
-
                 <div class="text-center mb-16">
-
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">About Oureum Chain</h2>
-
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">This section provides an overview of the Oureum Chain ecosystem. You can explore our two core products: the Oureum stablecoin for stability and the OUM network for efficient transactions. This interactive tabbed view helps you understand how each component contributes to our mission of bridging traditional finance with Web3.</p>
-
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">This section provides an overview of the Oureum Chain ecosystem. You can explore our two core products: the Oureum stablecoin for stability and the OUM network for efficient transactions. This interactive tabbed view helps you understand how each component contributes to our mission of bridging traditional finance with Web3.</p>
                 </div>
-
 
                 <div class="max-w-4xl mx-auto">
-
-                     <div class="mb-8 flex justify-center border-b border-gray-200">
-
-                        <button data-tab="ecosystem" class="tab-button text-lg font-semibold py-4 px-6 text-[#D4A373] border-b-2 border-[#D4A373]">The Ecosystem</button>
-
-                        <button data-tab="stablecoin" class="tab-button text-lg font-semibold py-4 px-6 text-gray-500 hover:text-[#BF8B5A]">Oureum Stablecoin</button>
-
-                        <button data-tab="network" class="tab-button text-lg font-semibold py-4 px-6 text-gray-500 hover:text-[#BF8B5A]">OUM L2 Network</button>
-
+                     <div class="mb-8 flex justify-center border-b border-gray-700">
+                        <button data-tab="ecosystem" class="tab-button text-lg font-semibold py-4 px-6 text-[#D4AF37] border-b-2 border-[#D4AF37]">The Ecosystem</button>
+                        <button data-tab="stablecoin" class="tab-button text-lg font-semibold py-4 px-6 text-gray-500 hover:text-[#B5912C]">Oureum Stablecoin</button>
+                        <button data-tab="network" class="tab-button text-lg font-semibold py-4 px-6 text-gray-500 hover:text-[#B5912C]">OUM L2 Network</button>
                     </div>
-
 
                     <div id="ecosystem" class="tab-content">
-
-                        <p class="text-center text-gray-600 mb-8">Oureum Chain is more than just a stablecoin—it's a complete ecosystem built for the Malaysian market. Our core products, the Oureum stablecoin and the OUM Layer 2 network, are engineered for trust, transparency, and scalability. We are committed to a regulatory-ready approach, ensuring a secure and compliant platform for all users.</p>
-
+                        <p class="text-center text-gray-400 mb-8">Oureum Chain is more than just a stablecoin—it's a complete ecosystem built for the Malaysian market. Our core products, the Oureum stablecoin and the OUM Layer 2 network, are engineered for trust, transparency, and scalability. We are committed to a regulatory-ready approach, ensuring a secure and compliant platform for all users.</p>
                     </div>
-
 
                     <div id="stablecoin" class="tab-content hidden">
-
                         <h3 class="text-2xl font-bold text-center mb-4">Oureum: Your Stable Digital Asset</h3>
-
-                        <p class="text-center text-gray-600">Oureum is a fully asset-backed, transparent, and redeemable stablecoin. It provides the stability of traditional currency with the benefits of blockchain technology, making it ideal for a variety of financial applications.</p>
-
+                        <p class="text-center text-gray-400">Oureum is a fully asset-backed, transparent, and redeemable stablecoin. It provides the stability of traditional currency with the benefits of blockchain technology, making it ideal for a variety of financial applications.</p>
                     </div>
-
-                   
-
+                    
                     <div id="network" class="tab-content hidden">
-
                          <h3 class="text-2xl font-bold text-center mb-4">OUM: The Scalable and Secure Network</h3>
-
-                        <p class="text-center text-gray-600">OUM is an Ethereum Layer 2 network with zero gas fees. It offers high scalability with over 1,000 TPS, ensuring fast and efficient transactions. OUM provides Ethereum-grade security and is EVM-compatible, making it developer-friendly.</p>
-
+                        <p class="text-center text-gray-400">OUM is an Ethereum Layer 2 network with low gas fees. It offers high scalability with over 1,000 TPS, ensuring fast and efficient transactions. OUM provides Ethereum-grade security and is EVM-compatible, making it developer-friendly.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <section id="features" class="py-24 bg-white">
-
+        <section id="features" class="py-24 bg-[#121212]">
             <div class="container mx-auto px-6">
-
                 <div class="text-center mb-16">
-
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Oureum Chain?</h2>
-
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our platform stands out with features built to solve real-world financial challenges. Explore the key advantages that make Oureum Chain the ideal choice for developers, businesses, and users in the digital economy.</p>
-
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Our platform stands out with features built to solve real-world financial challenges. Explore the key advantages that make Oureum Chain the ideal choice for developers, businesses, and users in the digital economy.</p>
                 </div>
-
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-                    <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                    <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">⚡</div>
-
                         <h3 class="text-xl font-bold mb-2">Low Gas Fees on OUM</h3>
-
-                        <p class="text-gray-600">Execute transactions on our Layer 2 network without any gas fees, making micro-transactions and frequent operations economically viable.</p>
-
+                        <p class="text-gray-400">Execute transactions on our Layer 2 network with low gas fees, making micro-transactions and frequent operations economically viable.</p>
                     </div>
-
-                    <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                    <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🏛️</div>
-
                         <h3 class="text-xl font-bold mb-2">Regulatory Ready & Compliant</h3>
-
-                        <p class="text-gray-600">Designed from the ground up to align with Malaysia's financial standards, ensuring a secure and compliant environment for all participants.</p>
-
+                        <p class="text-gray-400">Designed from the ground up to align with Malaysia's financial standards, ensuring a secure and compliant environment for all participants.</p>
                     </div>
-
-                    <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                    <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">💰</div>
-
                         <h3 class="text-xl font-bold mb-2">Fully Asset-Backed Stablecoin</h3>
-
-                        <p class="text-gray-600">The Oureum stablecoin is fully backed by transparent reserves, providing genuine stability and trust in the volatile crypto market.</p>
-
+                        <p class="text-gray-400">The Oureum stablecoin is fully backed by transparent reserves, providing genuine stability and trust in the volatile crypto market.</p>
                     </div>
-
-                     <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                     <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🔗</div>
-
                         <h3 class="text-xl font-bold mb-2">Ethereum-Compatible</h3>
-
-                        <p class="text-gray-600">Our OUM network is fully EVM-compatible, allowing developers to migrate and build decentralized applications with ease.</p>
-
+                        <p class="text-gray-400">Our OUM network is fully EVM-compatible, allowing developers to migrate and build decentralized applications with ease.</p>
                     </div>
-
-                     <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                     <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">🛡️</div>
-
                         <h3 class="text-xl font-bold mb-2">Uncompromising Security</h3>
-
-                        <p class="text-gray-600">Leveraging Ethereum's robust security model, the OUM network ensures the integrity and safety of all transactions and smart contracts.</p>
-
+                        <p class="text-gray-400">Leveraging Ethereum's robust security model, the OUM network ensures the integrity and safety of all transactions and smart contracts.</p>
                     </div>
-
-                     <div class="bg-[#FDFBF8] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-
+                     <div class="bg-[#2A2A2A] p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="text-4xl mb-4">📈</div>
-
                         <h3 class="text-xl font-bold mb-2">High Scalability</h3>
-
-                        <p class="text-gray-600">Capable of processing over 1,000 transactions per second, OUM is built for high-throughput applications and enterprise-level use.</p>
-
+                        <p class="text-gray-400">Capable of processing over 1,000 transactions per second, OUM is built for high-throughput applications and enterprise-level use.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
 
         <section id="use-cases" class="py-24">
-
             <div class="container mx-auto px-6">
-
                  <div class="text-center mb-16">
-
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Real-World Applications</h2>
-
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">The Oureum ecosystem is built to power the future of finance. See how our technology can be applied across various sectors to create value, enhance efficiency, and unlock new possibilities for businesses and consumers.</p>
-
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">The Oureum ecosystem is built to power the future of finance. See how our technology can be applied across various sectors to create value, enhance efficiency, and unlock new possibilities for businesses and consumers.</p>
                 </div>
-
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                    <div class="border border-gray-200 rounded-lg p-8 text-center hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-
+                    <div class="border border-gray-700 rounded-lg p-8 text-center hover:bg-[#2A2A2A] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-xl font-bold mb-2">Seamless Payments</h3>
-
-                        <p class="text-gray-600">Utilize Oureum for fast, cheap, and reliable domestic and international payments, bypassing traditional banking inefficiencies.</p>
-
+                        <p class="text-gray-400">Utilize Oureum for fast, cheap, and reliable domestic and international payments, bypassing traditional banking inefficiencies.</p>
                     </div>
-
-                     <div class="border border-gray-200 rounded-lg p-8 text-center hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-
+                     <div class="border border-gray-700 rounded-lg p-8 text-center hover:bg-[#2A2A2A] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-xl font-bold mb-2">Secure Treasury Management</h3>
-
-                        <p class="text-gray-600">Corporations can hold and manage funds in a stable digital asset, protected from cryptocurrency volatility and inflation.</p>
-
+                        <p class="text-gray-400">Corporations can hold and manage funds in a stable digital asset, protected from cryptocurrency volatility and inflation.</p>
                     </div>
-
-                     <div class="border border-gray-200 rounded-lg p-8 text-center hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-
+                     <div class="border border-gray-700 rounded-lg p-8 text-center hover:bg-[#2A2A2A] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-xl font-bold mb-2">Stable DeFi Collateral</h3>
-
-                        <p class="text-gray-600">Use Oureum as a reliable source of collateral in various decentralized finance (DeFi) protocols, such as lending and borrowing.</p>
-
+                        <p class="text-gray-400">Use Oureum as a reliable source of collateral in various decentralized finance (DeFi) protocols, such as lending and borrowing.</p>
                     </div>
-
-                     <div class="border border-gray-200 rounded-lg p-8 text-center hover:bg-white hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-
+                     <div class="border border-gray-700 rounded-lg p-8 text-center hover:bg-[#2A2A2A] hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-xl font-bold mb-2">Efficient Cross-Border Transfers</h3>
-
-                        <p class="text-gray-600">Facilitate international remittances and business payments with near-instant settlement times and minimal transaction costs.</p>
-
+                        <p class="text-gray-400">Facilitate international remittances and business payments with near-instant settlement times and minimal transaction costs.</p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
-
-        <section id="roadmap" class="py-24 bg-white">
-
+        <section id="roadmap" class="py-24 bg-[#121212]">
             <div class="container mx-auto px-6">
-
                 <div class="text-center mb-16">
-
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Vision for the Future</h2>
-
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">This interactive timeline visualizes our journey as we build Malaysia's premier stablecoin ecosystem. Click on any phase to learn about our key milestones and objectives. This chart provides a clear, high-level view of our strategic plan and commitment to long-term growth.</p>
-
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">This interactive timeline visualizes our journey as we build Malaysia's premier stablecoin ecosystem. Click on any phase to learn about our key milestones and objectives. This chart provides a clear, high-level view of our strategic plan and commitment to long-term growth.</p>
                 </div>
-
                 <div class="chart-container">
-
                     <canvas id="roadmap-chart"></canvas>
-
                 </div>
-
-                <div id="roadmap-details" class="mt-12 max-w-3xl mx-auto text-center p-8 bg-[#FDFBF8] rounded-xl shadow-sm transition-all duration-500 min-h-[150px]">
-
-                    <h3 id="roadmap-phase-title" class="text-2xl font-bold mb-2 text-[#D4A373]">Phase 1 – Foundation</h3>
-
-                    <p id="roadmap-phase-description" class="text-gray-700 text-lg">Testnet launch, implementation of the core compliance layer, and the release of our first public demo.</p>
-
+                <div id="roadmap-details" class="mt-12 max-w-3xl mx-auto text-center p-8 bg-[#2A2A2A] rounded-xl shadow-sm transition-all duration-500 min-h-[150px]">
+                    <h3 id="roadmap-phase-title" class="text-2xl font-bold mb-2 text-[#D4AF37]">Phase 1 – Foundation</h3>
+                    <p id="roadmap-phase-description" class="text-gray-300 text-lg">Testnet launch, implementation of the core compliance layer, and the release of our first public demo.</p>
                 </div>
-
             </div>
-
         </section>
-
 
         <section id="contact" class="py-24">
-
             <div class="container mx-auto px-6 text-center">
-
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Join the Revolution</h2>
-
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">Be a part of Malaysia's digital finance future. Whether you're a developer, an institution, or a user, there's a place for you in the Oureum ecosystem.</p>
-
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">Be a part of Malaysia's digital finance future. Whether you're a developer, an institution, or a user, there's a place for you in the Oureum ecosystem.</p>
                  <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
-
-                    <a href="#" class="w-full md:w-auto bg-[#D4A373] text-white px-8 py-4 rounded-full hover:bg-[#BF8B5A] transition shadow-lg text-lg font-semibold">Launch App</a>
-
-                    <a href="#" class="w-full md:w-auto bg-white text-[#D4A373] border border-[#D4A373] px-8 py-4 rounded-full hover:bg-[#FDFBF8] transition text-lg font-semibold">Read Whitepaper</a>
-
-                    <a href="#" class="w-full md:w-auto bg-white text-[#D4A373] border border-[#D4A373] px-8 py-4 rounded-full hover:bg-[#FDFBF8] transition text-lg font-semibold">Partner with Us</a>
-
+                    <a href="#" class="w-full md:w-auto bg-[#D4AF37] text-white px-8 py-4 rounded-full hover:bg-[#B5912C] transition shadow-lg text-lg font-semibold">Launch App</a>
+                    <a href="#" class="w-full md:w-auto bg-transparent text-[#D4AF37] border border-[#D4AF37] px-8 py-4 rounded-full hover:bg-[#2A2A2A] transition text-lg font-semibold">Read Whitepaper</a>
+                    <a href="#" class="w-full md:w-auto bg-transparent text-[#D4AF37] border border-[#D4AF37] px-8 py-4 rounded-full hover:bg-[#2A2A2A] transition text-lg font-semibold">Partner with Us</a>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
-    <footer class="bg-white border-t border-gray-200">
-
+    <footer class="bg-[#121212] border-t border-gray-700">
         <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-
             <p>&copy; 2025 Oureum Chain. All Rights Reserved.</p>
-
         </div>
-
     </footer>
 
-
     <script>
-
         document.addEventListener('DOMContentLoaded', () => {
-
-           
-
+            
             const mobileMenuButton = document.getElementById('mobile-menu-button');
-
             const mobileMenu = document.getElementById('mobile-menu');
-
             mobileMenuButton.addEventListener('click', () => {
-
                 mobileMenu.classList.toggle('hidden');
-
             });
-
-           
-
+            
             const header = document.getElementById('header');
-
             window.addEventListener('scroll', () => {
-
                 if (window.scrollY > 50) {
-
                     header.classList.add('shadow-md');
-
                 } else {
-
                     header.classList.remove('shadow-md');
-
                 }
-
             });
-
 
             const tabButtons = document.querySelectorAll('.tab-button');
-
             const tabContents = document.querySelectorAll('.tab-content');
 
-
             tabButtons.forEach(button => {
-
                 button.addEventListener('click', () => {
-
                     const tabId = button.dataset.tab;
 
-
                     tabButtons.forEach(btn => {
-
-                        btn.classList.remove('text-[#D4A373]', 'border-[#D4A373]');
-
+                        btn.classList.remove('text-[#D4AF37]', 'border-[#D4AF37]');
                         btn.classList.add('text-gray-500');
-
                     });
-
-                    button.classList.add('text-[#D4A373]', 'border-[#D4A373]');
-
+                    button.classList.add('text-[#D4AF37]', 'border-[#D4AF37]');
                     button.classList.remove('text-gray-500');
 
-
                     tabContents.forEach(content => {
-
                         if (content.id === tabId) {
-
                             content.classList.remove('hidden');
-
                         } else {
-
                             content.classList.add('hidden');
-
                         }
-
                     });
-
                 });
-
             });
-
 
             const roadmapData = {
-
                 'Phase 1 – Foundation': {
-
                     year: 2025,
-
                     title: 'Phase 1 – Foundation',
-
                     description: 'Testnet launch, implementation of the core compliance layer, and the release of our first public demo.'
-
                 },
-
                 'Phase 2 – Growth': {
-
                     year: 2026,
-
                     title: 'Phase 2 – Growth',
-
                     description: 'Mainnet launch, official release of the Oureum stablecoin, and establishing key strategic partnerships.'
-
                 },
-
                 'Phase 3 – Expansion': {
-
                     year: 2026.5,
-
                     title: 'Phase 3 – Expansion',
-
                     description: 'Development of the regulator dashboard for enhanced transparency and building of cross-chain bridges to other networks.'
-
                 },
-
                 'Phase 4 – Institutional Adoption': {
-
                     year: 2027,
-
                     title: 'Phase 4 – Institutional Adoption',
-
                     description: 'Global rollout, focusing on onboarding institutional partners and expanding the ecosystem worldwide.'
-
                 }
-
             };
 
-
             const roadmapDetailsTitle = document.getElementById('roadmap-phase-title');
-
             const roadmapDetailsDescription = document.getElementById('roadmap-phase-description');
-
             const roadmapDetailsContainer = document.getElementById('roadmap-details');
 
-
             const ctx = document.getElementById('roadmap-chart').getContext('2d');
-
             const roadmapChart = new Chart(ctx, {
-
                 type: 'line',
-
                 data: {
-
                     labels: Object.keys(roadmapData),
-
                     datasets: [{
-
                         label: 'Roadmap Progress',
-
                         data: Object.values(roadmapData).map(d => ({x: d.year, y: 1})),
-
-                        borderColor: '#D4A373',
-
-                        backgroundColor: '#D4A373',
-
-                        pointBackgroundColor: '#FDFBF8',
-
-                        pointBorderColor: '#D4A373',
-
+                        borderColor: '#D4AF37',
+                        backgroundColor: '#D4AF37',
+                        pointBackgroundColor: '#121212',
+                        pointBorderColor: '#D4AF37',
                         pointBorderWidth: 3,
-
                         pointRadius: 8,
-
                         pointHoverRadius: 12,
-
                         tension: 0.4,
-
                         fill: false
-
                     }]
-
                 },
-
                 options: {
-
                     responsive: true,
-
                     maintainAspectRatio: false,
-
                     scales: {
-
                         x: {
-
                             type: 'linear',
-
                             min: 2024.5,
-
                             max: 2027.5,
-
                             ticks: {
-
                                 stepSize: 1,
-
                                 callback: function(value) {
-
                                     return value % 1 === 0 ? value : '';
-
                                 }
-
                             },
-
                             title: {
-
                                 display: true,
-
-                                text: 'Year'
-
-                            }
-
+                                text: 'Year',
+                                color: '#F0F0F0'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            
                         },
-
                         y: {
-
                            display: false,
-
                            min: 0,
-
                            max: 2
-
                         }
-
                     },
-
                     plugins: {
-
                         legend: {
-
                             display: false
-
                         },
-
                         tooltip: {
-
                              enabled: true,
-
                              callbacks: {
-
                                  title: function(context) {
-
                                      return context[0].label;
-
                                  },
-
                                  label: function() {
-
                                      return 'Click to see details';
-
                                  }
-
                              }
-
                         }
-
                     },
-
                     onClick: (event, elements) => {
-
                         if (elements.length > 0) {
-
                             const index = elements[0].index;
-
                             const phaseKey = roadmapChart.data.labels[index];
-
                             const phaseData = roadmapData[phaseKey];
 
-
                             roadmapDetailsContainer.style.opacity = 0;
-
                             setTimeout(() => {
-
                                 roadmapDetailsTitle.textContent = phaseData.title;
-
                                 roadmapDetailsDescription.textContent = phaseData.description;
-
                                 roadmapDetailsContainer.style.opacity = 1;
-
                             }, 300);
-
                         }
-
                     }
-
                 }
-
             });
 
-
             const canvas = document.getElementById('hero-canvas');
-
             const context = canvas.getContext('2d');
-
             let particles = [];
-
             let width, height;
 
-
             function initCanvas() {
-
                 width = canvas.offsetWidth;
-
                 height = canvas.offsetHeight;
-
                 canvas.width = width;
-
                 canvas.height = height;
-
                 particles = [];
-
                 for (let i = 0; i < 50; i++) {
-
                     particles.push({
-
                         x: Math.random() * width,
-
                         y: Math.random() * height,
-
                         radius: Math.random() * 2 + 1,
-
                         vx: Math.random() * 1 - 0.5,
-
                         vy: Math.random() * 1 - 0.5
-
                     });
-
                 }
-
             }
-
-           
-
+            
             function draw() {
-
                 context.clearRect(0, 0, width, height);
-
-                context.fillStyle = 'rgba(212, 163, 115, 0.5)';
-
+                context.fillStyle = 'rgba(212, 175, 55, 0.2)';
                 particles.forEach(p => {
-
                     context.beginPath();
-
                     context.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-
                     context.fill();
 
-
                     p.x += p.vx;
-
                     p.y += p.vy;
 
-
                     if (p.x < 0 || p.x > width) p.vx *= -1;
-
                     if (p.y < 0 || p.y > height) p.vy *= -1;
-
                 });
-
                 requestAnimationFrame(draw);
-
             }
 
-
             initCanvas();
-
             draw();
-
             window.addEventListener('resize', initCanvas);
-
         });
-
     </script>
-
 </body>
-
 </html>
-
-
