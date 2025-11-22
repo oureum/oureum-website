@@ -7,6 +7,15 @@ import { Copy, ExternalLink, CheckCircle2, AlertTriangle, Wallet } from "lucide-
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+// 🔹 扩展 window.ethereum 的类型，让 TS 不再报错
+declare global {
+    interface Window {
+        ethereum?: {
+            request: (args: { method: string; params?: any[] }) => Promise<unknown>;
+        };
+    }
+}
+
 export default function NetworksPage() {
     const [copied, setCopied] = useState<string | null>(null);
 
@@ -17,29 +26,31 @@ export default function NetworksPage() {
     };
 
     const addNetwork = async () => {
-        if (typeof window.ethereum !== 'undefined') {
-            try {
-                await window.ethereum.request({
-                    method: 'wallet_addEthereumChain',
-                    params: [
-                        {
-                            chainId: '0xCA3DC', // 828828 in hex
-                            chainName: 'Oureum Internal Testnet',
-                            nativeCurrency: {
-                                name: 'Oureum',
-                                symbol: 'OUM',
-                                decimals: 18,
-                            },
-                            rpcUrls: ['https://testnet-rpc.oureum.com'],
-                            blockExplorerUrls: ['https://explorer-testnet.oureum.com'],
-                        },
-                    ],
-                });
-            } catch (error) {
-                console.error(error);
-            }
-        } else {
+        // 先确保在浏览器环境，并且有 MetaMask / EVM 钱包
+        if (typeof window === "undefined" || !window.ethereum) {
             alert("MetaMask is not installed!");
+            return;
+        }
+
+        try {
+            await window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [
+                    {
+                        chainId: "0xCA3DC", // 828828 in hex
+                        chainName: "Oureum Internal Testnet",
+                        nativeCurrency: {
+                            name: "Oureum",
+                            symbol: "OUM",
+                            decimals: 18,
+                        },
+                        rpcUrls: ["https://testnet-rpc.oureum.com"],
+                        blockExplorerUrls: ["https://explorer-testnet.oureum.com"],
+                    },
+                ],
+            });
+        } catch (error) {
+            console.error(error);
         }
     };
 
@@ -92,8 +103,16 @@ export default function NetworksPage() {
                                             <label className="text-sm font-medium text-muted-foreground">Network Name</label>
                                             <div className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
                                                 <span className="font-mono">Oureum Internal Testnet</span>
-                                                <Button variant="ghost" size="icon" onClick={() => copyToClipboard("Oureum Internal Testnet", "name")}>
-                                                    {copied === "name" ? <CheckCircle2 className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => copyToClipboard("Oureum Internal Testnet", "name")}
+                                                >
+                                                    {copied === "name" ? (
+                                                        <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                                    ) : (
+                                                        <Copy className="h-4 w-4" />
+                                                    )}
                                                 </Button>
                                             </div>
                                         </div>
@@ -101,8 +120,16 @@ export default function NetworksPage() {
                                             <label className="text-sm font-medium text-muted-foreground">RPC URL</label>
                                             <div className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
                                                 <span className="font-mono truncate">https://testnet-rpc.oureum.com</span>
-                                                <Button variant="ghost" size="icon" onClick={() => copyToClipboard("https://testnet-rpc.oureum.com", "rpc")}>
-                                                    {copied === "rpc" ? <CheckCircle2 className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => copyToClipboard("https://testnet-rpc.oureum.com", "rpc")}
+                                                >
+                                                    {copied === "rpc" ? (
+                                                        <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                                    ) : (
+                                                        <Copy className="h-4 w-4" />
+                                                    )}
                                                 </Button>
                                             </div>
                                         </div>
@@ -111,7 +138,11 @@ export default function NetworksPage() {
                                             <div className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
                                                 <span className="font-mono">828828</span>
                                                 <Button variant="ghost" size="icon" onClick={() => copyToClipboard("828828", "chainid")}>
-                                                    {copied === "chainid" ? <CheckCircle2 className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                                                    {copied === "chainid" ? (
+                                                        <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                                    ) : (
+                                                        <Copy className="h-4 w-4" />
+                                                    )}
                                                 </Button>
                                             </div>
                                         </div>
@@ -120,7 +151,11 @@ export default function NetworksPage() {
                                             <div className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
                                                 <span className="font-mono">OUM</span>
                                                 <Button variant="ghost" size="icon" onClick={() => copyToClipboard("OUM", "symbol")}>
-                                                    {copied === "symbol" ? <CheckCircle2 className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                                                    {copied === "symbol" ? (
+                                                        <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                                    ) : (
+                                                        <Copy className="h-4 w-4" />
+                                                    )}
                                                 </Button>
                                             </div>
                                         </div>
@@ -145,9 +180,21 @@ export default function NetworksPage() {
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-muted-foreground">OUMG (Oureum Gold)</label>
                                         <div className="flex items-center justify-between p-3 rounded-md bg-muted/50 border border-border">
-                                            <span className="font-mono text-sm truncate">0x86ea31421e159a9020378df039c23d55c6d0c62b</span>
-                                            <Button variant="ghost" size="icon" onClick={() => copyToClipboard("0x86ea31421e159a9020378df039c23d55c6d0c62b", "oumg")}>
-                                                {copied === "oumg" ? <CheckCircle2 className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                                            <span className="font-mono text-sm truncate">
+                                                0x86ea31421e159a9020378df039c23d55c6d0c62b
+                                            </span>
+                                            <Button
+                                                variant="ghost"
+                                                size="icon"
+                                                onClick={() =>
+                                                    copyToClipboard("0x86ea31421e159a9020378df039c23d55c6d0c62b", "oumg")
+                                                }
+                                            >
+                                                {copied === "oumg" ? (
+                                                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                                                ) : (
+                                                    <Copy className="h-4 w-4" />
+                                                )}
                                             </Button>
                                         </div>
                                         <p className="text-xs text-muted-foreground mt-1">
@@ -159,18 +206,25 @@ export default function NetworksPage() {
 
                             {/* Useful Links */}
                             <div className="grid gap-4 md:grid-cols-2">
-                                <a href="https://explorer-testnet.oureum.com" target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:bg-accent transition-colors">
+                                <a
+                                    href="https://explorer-testnet.oureum.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:bg-accent transition-colors"
+                                >
                                     <span className="font-medium">Block Explorer</span>
                                     <ExternalLink className="h-4 w-4 text-muted-foreground" />
                                 </a>
-                                <a href="https://oureum-testnet.tryethernal.com/faucet" target="_blank" rel="noopener noreferrer"
-                                    className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:bg-accent transition-colors">
+                                <a
+                                    href="https://oureum-testnet.tryethernal.com/faucet"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:bg-accent transition-colors"
+                                >
                                     <span className="font-medium">Testnet Faucet</span>
                                     <ExternalLink className="h-4 w-4 text-muted-foreground" />
                                 </a>
                             </div>
-
                         </div>
                     </TabsContent>
 
@@ -182,8 +236,8 @@ export default function NetworksPage() {
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">Mainnet Launching Soon</h3>
                                 <p className="text-muted-foreground max-w-md mx-auto">
-                                    The Oureum Mainnet is currently in final security audits.
-                                    Join our community to get notified when we launch.
+                                    The Oureum Mainnet is currently in final security audits. Join our community to get notified when we
+                                    launch.
                                 </p>
                             </CardContent>
                         </Card>
