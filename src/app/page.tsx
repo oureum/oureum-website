@@ -2,6 +2,7 @@
 
 import { ArrowRight, ShieldCheck, Globe, Activity, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { LaunchAppModal } from "@/components/launch-app-modal";
@@ -82,7 +83,7 @@ export default function Home() {
                     className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl"
                 >
                     {/* Card 1 */}
-                    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors">
+                    <div className="group relative overflow-hidden rounded-3xl border border-primary/20 dark:border-white/10 bg-primary/5 dark:bg-white/5 p-8 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors">
                         <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                             <ShieldCheck className="h-6 w-6" />
                         </div>
@@ -91,7 +92,7 @@ export default function Home() {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors md:col-span-2">
+                    <div className="group relative overflow-hidden rounded-3xl border border-primary/20 dark:border-white/10 bg-primary/5 dark:bg-white/5 p-8 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors md:col-span-2">
                         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                             <div>
                                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
@@ -100,12 +101,19 @@ export default function Home() {
                                 <h3 className="text-xl font-bold text-foreground mb-2">Global Liquidity</h3>
                                 <p className="text-muted-foreground max-w-md">Instant settlement and trading of tokenized metals across borders with near-zero fees.</p>
                             </div>
-                            <div className="relative h-32 w-full md:w-48 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl border border-white/5" />
+                            <div className="relative h-32 w-full md:w-48 rounded-2xl overflow-hidden border border-white/5">
+                                <Image
+                                    src="/global-liquidity.png"
+                                    alt="Global Liquidity"
+                                    fill
+                                    className="object-cover opacity-80"
+                                />
+                            </div>
                         </div>
                     </div>
 
                     {/* Card 3 */}
-                    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors md:col-span-2">
+                    <div className="group relative overflow-hidden rounded-3xl border border-primary/20 dark:border-white/10 bg-primary/5 dark:bg-white/5 p-8 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors md:col-span-2">
                         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                             <div>
                                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
@@ -114,12 +122,19 @@ export default function Home() {
                                 <h3 className="text-xl font-bold text-foreground mb-2">High Performance L2</h3>
                                 <p className="text-muted-foreground max-w-md">Built on OP Stack, ensuring Ethereum security with sub-second block times.</p>
                             </div>
-                            <div className="relative h-32 w-full md:w-48 bg-gradient-to-bl from-primary/20 to-transparent rounded-2xl border border-white/5" />
+                            <div className="relative h-32 w-full md:w-48 rounded-2xl overflow-hidden border border-white/5">
+                                <Image
+                                    src="/high-performance-l2.png"
+                                    alt="High Performance L2"
+                                    fill
+                                    className="object-cover opacity-80"
+                                />
+                            </div>
                         </div>
                     </div>
 
                     {/* Card 4 */}
-                    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition-colors flex flex-col justify-between">
+                    <div className="group relative overflow-hidden rounded-3xl border border-primary/20 dark:border-white/10 bg-primary/5 dark:bg-white/5 p-8 hover:bg-primary/10 dark:hover:bg-white/10 transition-colors flex flex-col justify-between">
                         <div>
                             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                                 <ChevronRight className="h-6 w-6" />

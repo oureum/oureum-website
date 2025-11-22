@@ -25,17 +25,21 @@ export default function WhitepaperPage() {
                         </p>
 
                         <div className="grid gap-4 md:grid-cols-2 max-w-md mx-auto">
-                            <Button size="lg" className="w-full">
-                                Read Online (GitBook)
+                            <Button size="lg" className="w-full" asChild>
+                                <a href="https://oureum.gitbook.io/oureum-whitepaper" target="_blank" rel="noopener noreferrer">
+                                    Read Online (GitBook)
+                                </a>
                             </Button>
-                            <Button size="lg" variant="outline" className="w-full">
-                                <Download className="mr-2 h-4 w-4" />
-                                Download PDF
+                            <Button size="lg" variant="outline" className="w-full" asChild>
+                                <a href="/oureum-whitepaper-v1.2.pdf" download>
+                                    <Download className="mr-2 h-4 w-4" />
+                                    Download PDF
+                                </a>
                             </Button>
                         </div>
 
                         <p className="mt-12 text-sm text-muted-foreground">
-                            Version 1.0 • Last updated November 2025
+                            Version 1.2 • Last updated November 2025
                         </p>
                     </div>
                 </div>
