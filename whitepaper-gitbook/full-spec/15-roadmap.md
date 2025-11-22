@@ -17,8 +17,8 @@ The Oureum roadmap is structured in phases, aligning with both technical milesto
     *   MetaMask login
     *   View OUM & OUMG balances
     *   Redeem simulation (cash/gold)
-*   Begin collaboration with vault partner in Malaysia (BNM price oracle feed).
-*   Start monthly proof-of-reserve attestations (mock).
+    *   Begin collaboration with vault partner in Malaysia (BNM price oracle feed).
+    *   Start monthly proof-of-reserve attestations (mock).
 
 ## Phase 2 – Growth (Q1–Q2 2026)
 *   Mainnet (Layer 2) launched with OP Stack or zkRollup architecture.
