@@ -1,15 +1,11 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { FileText, Download } from "lucide-react"
 
 export default function WhitepaperPage() {
     return (
         <div className="flex min-h-screen flex-col">
-            <Navbar />
-
             <main className="flex-1 py-24 bg-background flex items-center justify-center">
                 <div className="container px-4 mx-auto text-center">
                     <div className="max-w-2xl mx-auto">
@@ -44,7 +40,6 @@ export default function WhitepaperPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
         </div>
     )
 }
