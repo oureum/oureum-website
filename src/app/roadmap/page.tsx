@@ -8,7 +8,7 @@ export default function RoadmapPage() {
         {
             id: "phase-1",
             title: "Phase 1: Foundation",
-            subtitle: "Q3 2024",
+            subtitle: "Q3 2025",
             description: "Laying the groundwork for the world's first gold-backed L2 network.",
             items: [
                 "Project Inception & Legal Framework",
@@ -21,7 +21,7 @@ export default function RoadmapPage() {
         {
             id: "phase-2",
             title: "Phase 2: Alpha Access",
-            subtitle: "Q4 2024",
+            subtitle: "Q4 2025",
             description: "Private testing of the Oureum Network and Gold Tokenization Standard.",
             items: [
                 "Internal Testnet Launch",
@@ -34,7 +34,7 @@ export default function RoadmapPage() {
         {
             id: "phase-3",
             title: "Phase 3: Public Beta & Presale",
-            subtitle: "Q1 2025",
+            subtitle: "Q1 2026",
             description: "Opening the network to the community and early adopters.",
             items: [
                 "Public Testnet Live",
@@ -47,7 +47,7 @@ export default function RoadmapPage() {
         {
             id: "phase-4",
             title: "Phase 4: Security & Compliance",
-            subtitle: "Q2 2025",
+            subtitle: "Q2 2026",
             description: "Ensuring institutional-grade security and regulatory compliance before mainnet.",
             items: [
                 "Institutional Custody Integration",
@@ -60,7 +60,7 @@ export default function RoadmapPage() {
         {
             id: "phase-5",
             title: "Phase 5: Mainnet Launch",
-            subtitle: "Q3 2025",
+            subtitle: "Q3 2026",
             description: "The official launch of the Oureum Mainnet and Token Generation Event.",
             items: [
                 "Oureum Mainnet Genesis",
@@ -73,7 +73,7 @@ export default function RoadmapPage() {
         {
             id: "phase-6",
             title: "Phase 6: Ecosystem Growth",
-            subtitle: "Q4 2025+",
+            subtitle: "Q4 2026+",
             description: "Expanding the Oureum ecosystem with dApps, DeFi, and real-world adoption.",
             items: [
                 "DeFi Protocol Integrations",
